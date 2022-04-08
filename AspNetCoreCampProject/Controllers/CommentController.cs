@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BussinesLayer.Concrete;
+using DataAccesLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreCampProject.Controllers
 {
 	public class CommentController : Controller
 	{
+		CommentManager cm = new CommentManager(new EfCommentRepository());
 		public IActionResult Index()
 		{
 			return View();
@@ -12,9 +15,10 @@ namespace AspNetCoreCampProject.Controllers
 		{
 			return PartialView();
 		}
-		public PartialViewResult CommentListByBlog()
+		public PartialViewResult CommentListByBlog(int id)
 		{
-			return PartialView();
+			var values = cm.GetList(id);
+			return PartialView(values);
 		}
 	}
 }

@@ -14,7 +14,8 @@ namespace AspNetCoreCampProject.Controllers
         }
         public IActionResult BlogReadAll(int id)
         {
-        var values = bm.GelBlogByID(id);
+            ViewBag.i = id;
+            var values = bm.GelBlogByID(id);
             return View(values);
         }
     }

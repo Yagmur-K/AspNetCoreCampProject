@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 namespace DataAccesLayer.Concrete
 {
     public class Context : DbContext
-
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
